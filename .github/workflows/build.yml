@@ -4,7 +4,7 @@ jobs:
   build:
     strategy:
       matrix:
-          architecture: [x64]
+          architecture: [x64, x86]
     runs-on: windows-2019
     steps:
       - uses: ilammy/setup-nasm@v1
