@@ -22,9 +22,9 @@ Set-Location "aom"
 New-Item "build.libavif" -ItemType "directory"
 Set-Location "build.libavif"
 $on = if ($architecture -eq "x64") {"1"} else {"0"}
-echo cmake -G "$generator" -A "$platform" -DENABLE_DOCS=0 -DENABLE_EXAMPLES=0 -DENABLE_TESTDATA=0 -DENABLE_TESTS=0 -DENABLE_TOOLS=0 -DENABLE_NASM=1 -DENABLE_SSE2=$on -DENABLE_SSE3=$on DENABLE_SSSE3=$on -DENABLE_SSE4_1=$on -DENABLE_SSE4_2=$on -DENABLE_AVX=$on -DENABLE_AVX2=$on ..
+echo cmake "-G" "$generator" "-A" "$platform" "-DENABLE_DOCS=0" "-DENABLE_EXAMPLES=0" "-DENABLE_TESTDATA=0" "-DENABLE_TESTS=0" "-DENABLE_TOOLS=0" "-DENABLE_NASM=1" "-DENABLE_SSE2=$on" "-DENABLE_SSE3=$on" "-DENABLE_SSSE3=$on" "-DENABLE_SSE4_1=$on" "-DENABLE_SSE4_2=$on" "-DENABLE_AVX=$on" "-DENABLE_AVX2=$on" ".."
 
-cmake -G "$generator" -A "$platform" -DENABLE_DOCS=0 -DENABLE_EXAMPLES=0 -DENABLE_TESTDATA=0 -DENABLE_TESTS=0 -DENABLE_TOOLS=0 -DENABLE_NASM=1 -DENABLE_SSE2=$on -DENABLE_SSE3=$on DENABLE_SSSE3=$on -DENABLE_SSE4_1=$on -DENABLE_SSE4_2=$on -DENABLE_AVX=$on -DENABLE_AVX2=$on ..
+cmake "-G" "$generator" "-A" "$platform" "-DENABLE_DOCS=0" "-DENABLE_EXAMPLES=0" "-DENABLE_TESTDATA=0" "-DENABLE_TESTS=0" "-DENABLE_TOOLS=0" "-DENABLE_NASM=1" "-DENABLE_SSE2=$on" "-DENABLE_SSE3=$on" "-DENABLE_SSSE3=$on" "-DENABLE_SSE4_1=$on" "-DENABLE_SSE4_2=$on" "-DENABLE_AVX=$on" "-DENABLE_AVX2=$on" ".."
 msbuild "/t:Build" "/p:Configuration=Release" "/p:Platform=$platform" "AOM.sln"
 xcopy "Release\*.lib" "."
 Set-Location "..\..\.."
