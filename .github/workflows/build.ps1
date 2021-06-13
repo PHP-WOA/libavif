@@ -21,7 +21,7 @@ git clone -b "v2.0.2" --depth 1 "https://aomedia.googlesource.com/aom"
 Set-Location "aom"
 New-Item "build.libavif" -ItemType "directory"
 Set-Location "build.libavif"
-cmake -G "$generator" -A "$platform" -DENABLE_DOCS=0 -DENABLE_EXAMPLES=0 -DENABLE_TESTDATA=0 -DENABLE_TESTS=0 -DENABLE_TOOLS=0 ..
+cmake -G "$generator" -A "$platform" -DENABLE_DOCS=0 -DENABLE_EXAMPLES=0 -DENABLE_TESTDATA=0 -DENABLE_TESTS=0 -DENABLE_TOOLS=0 -DENABLE_NASM=1 ..
 msbuild "/t:Build" "/p:Configuration=Release" "/p:Platform=$platform" "AOM.sln"
 xcopy "Release\*.lib" "."
 Set-Location "..\..\.."
