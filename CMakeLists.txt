@@ -1,8 +1,8 @@
 # Copyright 2019 Joe Drago. All rights reserved.
 # SPDX-License-Identifier: BSD-2-Clause
 
-cmake_minimum_required(VERSION 3.5)
-
+cmake_minimum_required(VERSION 3.15)
+set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 # Specify search path for CMake modules to be loaded by include()
 # and find_package()
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules")
